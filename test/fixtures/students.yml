@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phone: MyString
+  parent_phone: MyString
+  notes: MyText
+  balance: 9.99
+  rate: 9.99
+  email: MyString
+  parents_email: MyString
+
+two:
+  name: MyString
+  phone: MyString
+  parent_phone: MyString
+  notes: MyText
+  balance: 9.99
+  rate: 9.99
+  email: MyString
+  parents_email: MyString
