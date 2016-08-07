@@ -12,7 +12,7 @@
 
 <p>
   <strong>:</strong>
-  <%= @transaction. %>
+  <%= @transaction.notes %>
 </p>
 
 <p>
@@ -20,5 +20,5 @@
   <%= @transaction.credit %>
 </p>
 
-<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
-<%= link_to 'Back', transactions_path %>
+<%= link_to 'Edit', edit_student_transaction_path(@transaction) %> |
+<%= link_to 'Back', student_transactions_path %>
