@@ -2,13 +2,11 @@ class LessonsController < ApplicationController
   before_action :set_student
 
   # GET /lessons
-  # GET /lessons.json
   def index
     @lessons = @student.lessons
   end
 
   # GET /lessons/1
-  # GET /lessons/1.json
   def show
     @lesson = @student.lessons.find(params[:id])
   end
@@ -24,11 +22,11 @@ class LessonsController < ApplicationController
   end
 
   # POST /lessons
-  # POST /lessons.json
   def create
     @lesson = @student.lessons.new(lesson_params)
 
     if @lesson.save
+      deduct_lesson
       redirect_to [@student, @lesson]
     else
       render action: "new"
@@ -36,7 +34,6 @@ class LessonsController < ApplicationController
   end
 
   # PATCH/PUT /lessons/1
-  # PATCH/PUT /lessons/1.json
   def update
     @lesson = @student.lessons.find(params[:id])
 
@@ -50,7 +47,6 @@ class LessonsController < ApplicationController
   end
 
   # DELETE /lessons/1
-  # DELETE /lessons/1.json
   def destroy
     @lesson = @student.lessons.find(params[:id])
     @lesson.destroy
@@ -60,14 +56,19 @@ class LessonsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_student
-      # @lesson = Lesson.find(params[:id])
       @student = Student.find(params[:student_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
       params.require(:lesson).permit(:date_time, :duration, :notes)
+    end
+
+    def deduct_lesson
+      rate = @student.rate
+      cost = (@lesson.duration / 60.0) * rate
+      cost = cost.to_i
+      @student.account_debit(cost)
     end
 end

@@ -27,6 +27,7 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
+        credit_account
         format.html { redirect_to [@student, @transaction], notice: 'Transaction was successfully created.' }
       else
         format.html { render :new }
@@ -65,5 +66,10 @@ class TransactionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
       params.require(:transaction).permit(:ammount, :date_time, :notes, :credit)
+    end
+
+    def credit_account
+      num = @transaction.ammount
+      @student.account_credit(num)
     end
 end
