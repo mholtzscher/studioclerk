@@ -1,19 +1,13 @@
 development:
-  adapter: postgresql
-  database: dechq40529apaq
+  adapter: sqlite3
   pool: 5
   timeout: 5000
-  host: ec2-54-243-204-57.compute-1.amazonaws.com
-  username: iouquvqhtuweny
-  password: 5NdZSCLMt4xCm4uXukdCEG1tuW
+  database: db/development.sqlite3
 test:
-  adapter: postgresql
-  database: dechq40529apaq
+  adapter: sqlite3
   pool: 5
   timeout: 5000
-  host: ec2-54-243-204-57.compute-1.amazonaws.com
-  username: iouquvqhtuweny
-  password: 5NdZSCLMt4xCm4uXukdCEG1tuW
+  database: db/development.sqlite3
 production:
   adapter: postgresql
   database: studio_production
