@@ -1,13 +1,19 @@
 development:
   adapter: postgresql
-  database: my_database_development
+  database: dechq40529apaq
   pool: 5
   timeout: 5000
+  host: ec2-54-243-204-57.compute-1.amazonaws.com
+  username: iouquvqhtuweny
+  password: 5NdZSCLMt4xCm4uXukdCEG1tuW
 test:
   adapter: postgresql
-  database: my_database_test
+  database: dechq40529apaq
   pool: 5
   timeout: 5000
+  host: ec2-54-243-204-57.compute-1.amazonaws.com
+  username: iouquvqhtuweny
+  password: 5NdZSCLMt4xCm4uXukdCEG1tuW
 production:
   adapter: postgresql
   database: studio_production
