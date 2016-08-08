@@ -40,5 +40,9 @@
   <%= @student.parents_email %>
 </p>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<%= link_to 'Edit Student', edit_student_path(@student) %> |
+<%= link_to 'Back To Student List', students_path %> |
+<%= link_to 'Add Lesson', new_student_lesson_path(@student) %> |
+<%= link_to 'View Lesson History', student_lessons_path(@student) %> |
+<%= link_to 'Add Transaction', new_student_transaction_path(@student) %> |
+<%= link_to 'View Transaction History', student_transactions_path(@student) %>
