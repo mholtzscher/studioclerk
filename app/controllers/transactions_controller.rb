@@ -53,7 +53,7 @@ class TransactionsController < ApplicationController
     @transaction = @student.transactions.find(params[:id])
     @transaction.destroy
     respond_to do |format|
-      format.html { redirect_to transactions_url, notice: 'Transaction was successfully destroyed.' }
+      format.html { redirect_to student_transactions_url, notice: 'Transaction was successfully destroyed.' }
     end
   end
 
