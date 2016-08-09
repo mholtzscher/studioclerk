@@ -44,8 +44,25 @@
 <div class="panel panel-warning">
   <div class="panel-heading">Recent Lessons</div>
   <div class="panel-body">
-    Lessons
-    <%= @student.lessons.recent %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date time</th>
+          <th>Duration</th>
+          <th colspan="1"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @student.lessons.recent.each do |lesson| %>
+          <tr>
+            <td><%= lesson.date_time %></td>
+            <td><%= lesson.duration %></td>
+            <td><%= link_to 'View Details', student_lesson_path(@student, lesson), :class=>'btn btn-info btn-block' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 
