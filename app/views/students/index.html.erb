@@ -21,8 +21,8 @@
     <% @students.each do |student| %>
       <tr class="<%= account_status(student) %>">
         <td><%= student.name %></td>
-        <td><%= student.phone %></td>
-        <td><%= student.parent_phone %></td>
+        <td><%= number_to_phone(student.phone) %></td>
+        <td><%= number_to_phone(student.parent_phone) %></td>
         <td><%= student.notes %></td>
         <td><%= number_to_currency(student.balance) %></td>
         <td><%= student.rate %></td>
