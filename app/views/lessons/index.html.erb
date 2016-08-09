@@ -2,7 +2,7 @@
 
 <h1>Lessons</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Date time</th>
@@ -18,9 +18,9 @@
         <td><%= lesson.date_time %></td>
         <td><%= lesson.duration %></td>
         <td><%= lesson.notes %></td>
-        <td><%= link_to 'Show', student_lesson_path(@student, lesson) %></td>
-        <td><%= link_to 'Edit', edit_student_lesson_path(@student, lesson) %></td>
-        <td><%= link_to 'Destroy', student_lesson_path(@student, lesson), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View', student_lesson_path(@student, lesson), :class=>'btn btn-info btn-block' %></td>
+        <td><%= link_to 'Edit', edit_student_lesson_path(@student, lesson), :class=>'btn btn-warning btn-block' %></td>
+        <td><%= link_to 'Delete', student_lesson_path(@student, lesson), method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger btn-block' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Lesson', new_student_lesson_path %>
+<%= link_to 'New Lesson', new_student_lesson_path, :class=>'btn btn-primary' %>
