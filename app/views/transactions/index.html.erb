@@ -2,7 +2,7 @@
 
 <h1>Transactions</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Ammount</th>
@@ -20,9 +20,9 @@
         <td><%= transaction.date_time %></td>
         <td><%= transaction.notes %></td>
         <td><%= transaction.credit %></td>
-        <td><%= link_to 'Show', student_transaction_path(@student, transaction) %></td>
-        <td><%= link_to 'Edit', edit_student_transaction_path(@student, transaction) %></td>
-        <td><%= link_to 'Destroy', student_transaction_path(@student, transaction), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View', student_transaction_path(@student, transaction), :class=>'btn btn-info btn-block' %></td>
+        <td><%= link_to 'Edit', edit_student_transaction_path(@student, transaction), :class=>'btn btn-warning btn-block' %></td>
+        <td><%= link_to 'Delete', student_transaction_path(@student, transaction), method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger btn-block' %></td>
       </tr>
     <% end %>
   </tbody>
