@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ammount:</strong>
+  <%= @credit.ammount %>
+</p>
+
+<p>
+  <strong>Date time:</strong>
+  <%= @credit.date_time %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @credit.notes %>
+</p>
+
+<%= link_to 'Edit', edit_student_credit_path(@credit) %> |
+<%= link_to 'Back', student_credits_path %>

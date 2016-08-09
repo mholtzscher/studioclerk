@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809033040) do
+ActiveRecord::Schema.define(version: 20160809034624) do
+
+  create_table "credits", force: :cascade do |t|
+    t.decimal  "ammount"
+    t.datetime "date_time"
+    t.text     "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "student_id"
+    t.index ["student_id"], name: "index_credits_on_student_id"
+  end
 
   create_table "lessons", force: :cascade do |t|
     t.datetime "date_time"
@@ -33,16 +43,6 @@ ActiveRecord::Schema.define(version: 20160809033040) do
     t.string   "parents_email"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.decimal  "ammount"
-    t.datetime "date_time"
-    t.text     "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "student_id"
-    t.index ["student_id"], name: "index_transactions_on_student_id"
   end
 
 end
