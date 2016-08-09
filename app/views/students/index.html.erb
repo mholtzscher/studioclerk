@@ -19,12 +19,12 @@
 
   <tbody>
     <% @students.each do |student| %>
-      <tr class="<%= account_status(student) %>">
+      <tr>
         <td><%= student.name %></td>
         <td><%= student.phone %></td>
         <td><%= student.parent_phone %></td>
         <td><%= student.notes %></td>
-        <td><%= student.balance %></td>
+        <td class="<%= account_status(student) %>"><%= student.balance %></td>
         <td><%= student.rate %></td>
         <td><%= student.email %></td>
         <td><%= student.parents_email %></td>
