@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807214923) do
+ActiveRecord::Schema.define(version: 20160809033040) do
 
   create_table "lessons", force: :cascade do |t|
     t.datetime "date_time"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20160807214923) do
     t.decimal  "ammount"
     t.datetime "date_time"
     t.text     "notes"
-    t.boolean  "credit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "student_id"
