@@ -16,7 +16,7 @@
 
   <tbody>
     <% @students.each do |student| %>
-      <tr class="<%= account_status(student) %>">
+      <tr class="<%= account_status(student) %>" data-link="<%= student_path(student) %>">
         <td><%= student.name %></td>
         <td><%= number_to_phone student.phone %></td>
         <td><%= number_to_currency student.balance %></td>
