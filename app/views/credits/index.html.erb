@@ -15,8 +15,8 @@
   <tbody>
     <% @credits.each do |credit| %>
       <tr>
-        <td><%= credit.ammount %></td>
-        <td><%= credit.date_time %></td>
+        <td><%= number_to_currency credit.ammount %></td>
+        <td><%= local_time credit.date_time %></td>
         <td><%= credit.notes %></td>
         <td><%= link_to 'View', student_credit_path(@student, credit), :class=>'btn btn-info btn-block' %></td>
         <td><%= link_to 'Edit', edit_student_credit_path(@student, credit), :class=>'btn btn-warning btn-block' %></td>

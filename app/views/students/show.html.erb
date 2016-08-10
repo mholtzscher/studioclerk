@@ -9,12 +9,12 @@
 
         <p>
           <strong>Phone:</strong>
-          <%= @student.phone %>
+          <%= number_to_phone @student.phone %>
         </p>
 
         <p>
           <strong>Parent phone:</strong>
-          <%= @student.parent_phone %>
+          <%= number_to_phone @student.parent_phone %>
         </p>
 
         <p>
@@ -24,12 +24,12 @@
 
         <p>
           <strong>Balance:</strong>
-          <%= @student.balance %>
+          <%= number_to_currency @student.balance %>
         </p>
 
         <p>
           <strong>Rate(per hour):</strong>
-          <%= @student.rate %>
+          <%= number_to_currency @student.rate %>
         </p>
 
         <p>
@@ -63,7 +63,7 @@
           <tbody>
             <% @student.lessons.recent.each do |lesson| %>
               <tr>
-                <td><%= lesson.date_time %></td>
+                <td><%= local_time lesson.date_time %></td>
                 <td><%= lesson.duration %></td>
                 <td><%= lesson.notes %></td>
               </tr>
@@ -90,8 +90,8 @@
           <tbody>
             <% @student.credits.recent.each do |credit| %>
               <tr>
-                <td><%= credit.ammount %></td>
-                <td><%= credit.date_time %></td>
+                <td><%= number_to_currency credit.ammount %></td>
+                <td><%= local_time credit.date_time %></td>
                 <td><%= credit.notes %></td>
               </tr>
             <% end %>

@@ -2,12 +2,12 @@
 
 <p>
   <strong>Ammount:</strong>
-  <%= @credit.ammount %>
+  <%= number_to_currency @credit.ammount %>
 </p>
 
 <p>
   <strong>Date time:</strong>
-  <%= @credit.date_time %>
+  <%= local_time @credit.date_time %>
 </p>
 
 <p>

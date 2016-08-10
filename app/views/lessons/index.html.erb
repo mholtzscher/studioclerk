@@ -15,7 +15,7 @@
   <tbody>
     <% @lessons.each do |lesson| %>
       <tr>
-        <td><%= lesson.date_time %></td>
+        <td><%= local_time lesson.date_time %></td>
         <td><%= lesson.duration %></td>
         <td><%= lesson.notes %></td>
         <td><%= link_to 'View', student_lesson_path(@student, lesson), :class=>'btn btn-info btn-block' %></td>

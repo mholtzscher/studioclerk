@@ -21,11 +21,11 @@
     <% @students.each do |student| %>
       <tr class="<%= account_status(student) %>">
         <td><%= student.name %></td>
-        <td><%= number_to_phone(student.phone) %></td>
-        <td><%= number_to_phone(student.parent_phone) %></td>
+        <td><%= number_to_phone student.phone %></td>
+        <td><%= number_to_phone student.parent_phone %></td>
         <td><%= student.notes %></td>
-        <td><%= number_to_currency(student.balance) %></td>
-        <td><%= student.rate %></td>
+        <td><%= number_to_currency student.balance %></td>
+        <td><%= number_to_currency student.rate %></td>
         <td><%= student.email %></td>
         <td><%= student.parents_email %></td>
         <td><%= link_to 'View', student, :class=>'btn btn-info btn-block' %></td>
