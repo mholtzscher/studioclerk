@@ -10,7 +10,7 @@
       <th>Balance</th>
       <th>Rate(per hour)</th>
       <th>Email</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -23,8 +23,6 @@
         <td><%= number_to_currency student.rate %></td>
         <td><%= student.email %></td>
         <td><%= link_to 'View', student, :class=>'btn btn-info btn-block' %></td>
-        <td><%= link_to 'Edit', edit_student_path(student), :class=>'btn btn-warning btn-block' %></td>
-        <td><%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger btn-block' %></td>
       </tr>
     <% end %>
   </tbody>
