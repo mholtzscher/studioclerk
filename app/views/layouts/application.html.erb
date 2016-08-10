@@ -18,8 +18,8 @@
       </div>
     </nav>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="alert alert-info" role="alert" style="<%= 'display: none;' unless notice%>"><%= notice %></div>
+    <div class="alert alert-danger" role="alert" style="<%= 'display: none;' unless alert%>"><%= alert %></div>
     
     <div class="container">
       <%= yield %>
