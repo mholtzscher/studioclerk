@@ -17,10 +17,9 @@
         </div>
 
         <% if user_signed_in? %>
-          <div class="nav navbar-nav navbar-right">
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-          </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+            </ul>
         <% end %>
 
       </div>
