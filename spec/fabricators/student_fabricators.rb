@@ -5,7 +5,7 @@ Fabricator(:student) do
   phone { Faker::PhoneNumber.phone_number }
   parent_phone { Faker::PhoneNumber.phone_number }
   notes { Faker::Lorem.sentence }
-  balance { Faker::Number.between(10, 100) }
+  balance { Faker::Number.between(-100, 100) }
   rate { Faker::Number.between(10, 40) }
   email { Faker::Internet.email }
   parents_email { Faker::Internet.email }
