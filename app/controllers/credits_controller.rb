@@ -25,6 +25,10 @@ class CreditsController < ApplicationController
   def create
     @credit = @student.credits.new(credit_params)
 
+    if credit_params[:email_receipt]?
+      puts 'I need to email parent!'
+    end
+
     respond_to do |format|
       if @credit.save
         credit_account
@@ -65,7 +69,7 @@ class CreditsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def credit_params
-      params.require(:credit).permit(:ammount, :date_time, :notes, :credit)
+      params.require(:credit).permit(:ammount, :date_time, :notes, :credit, :email_receipt)
     end
 
     def credit_account

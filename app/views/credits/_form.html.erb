@@ -33,6 +33,13 @@
   </div>
 
   <div class="form-group">
+    <%= f.check_box :email_receipt %>
+    <div class="col-md-8">
+      <%= f.label :email_receipt, class: "checkbox-inline" %>
+    </div>
+  </div>
+
+  <div class="form-group">
     <div class="col-md-8">
       <%= f.submit class: 'btn btn-default btn-success' %>
     </div>
