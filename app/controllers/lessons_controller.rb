@@ -49,6 +49,7 @@ class LessonsController < ApplicationController
   # DELETE /lessons/1
   def destroy
     @lesson = @student.lessons.find(params[:id])
+    
     @lesson.destroy
     respond_to do |format|
       format.html { redirect_to student_lessons_url, notice: 'Lesson was successfully destroyed.' }
