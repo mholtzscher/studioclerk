@@ -26,7 +26,7 @@ class CreditsController < ApplicationController
     @credit = @student.credits.new(credit_params)
 
     if credit_params[:email_receipt]?
-      puts 'I need to email parent!'
+      puts "I need to email parent!"
     end
 
     respond_to do |format|
