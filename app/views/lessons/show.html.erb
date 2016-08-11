@@ -1,17 +1,28 @@
-<p>
-  <strong>Date time:</strong>
-  <%= local_time @lesson.date_time %>
-</p>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading"> <%= @student.name %></div>
+      <div class="panel-body">
+        <p>
+          <strong>Date time:</strong>
+          <%= local_time @lesson.date_time %>
+        </p>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @lesson.duration %>
-</p>
+        <p>
+          <strong>Duration:</strong>
+          <%= @lesson.duration %>
+        </p>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @lesson.notes %>
-</p>
+        <p>
+          <strong>Notes:</strong>
+          <%= @lesson.notes %>
+        </p>
 
-<%= link_to 'Edit', edit_student_lesson_path(@lesson) %> |
-<%= link_to 'Back', student_lessons_path %>
+        <%= link_to 'Edit', edit_student_lesson_path(@lesson), :class=>'btn btn-primary' %>
+        <%= link_to 'Full Lesson History', student_lessons_path, :class=>'btn btn-primary' %>
+        <%= link_to 'Back To Student', @lesson, :class=>'btn btn-info btn-block' %>
+
+      </div>
+    </div>
+  </div>
+</div>

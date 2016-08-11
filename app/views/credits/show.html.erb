@@ -1,17 +1,28 @@
-<p>
-  <strong>Ammount:</strong>
-  <%= number_to_currency @credit.ammount %>
-</p>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading"> <%= @student.name %></div>
+      <div class="panel-body">
+        <p>
+          <strong>Ammount:</strong>
+          <%= number_to_currency @credit.ammount %>
+        </p>
 
-<p>
-  <strong>Date time:</strong>
-  <%= local_time @credit.date_time %>
-</p>
+        <p>
+          <strong>Date time:</strong>
+          <%= local_time @credit.date_time %>
+        </p>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @credit.notes %>
-</p>
+        <p>
+          <strong>Notes:</strong>
+          <%= @credit.notes %>
+        </p>
 
-<%= link_to 'Edit', edit_student_credit_path(@credit) %> |
-<%= link_to 'Back', student_credits_path %>
+        <%= link_to 'Edit', edit_student_credit_path(@credit), :class=>'btn btn-primary' %>
+        <%= link_to 'Full Account History', student_credits_path, :class=>'btn btn-primary' %>
+        <%= link_to 'Back To Student', @student, :class=>'btn btn-info btn-block' %>
+
+      </div>
+    </div>
+  </div>
+</div>
