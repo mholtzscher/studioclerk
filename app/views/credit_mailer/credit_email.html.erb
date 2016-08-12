@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Account Credit for <%= @student.name %></h1>
+    <p>
+      An acount credit of <%= number_to_currency @credit.ammount %> has been applied to <%= @student.name %>.</br>
+    </p>
+    <p>
+        New balance is: <%= number_to_currency @student.balance %></br>
+    </P
+    <p>Thanks and have a great day!</p>
+  </body>
+</html>
