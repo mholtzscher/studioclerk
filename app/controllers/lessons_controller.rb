@@ -28,7 +28,7 @@ class LessonsController < ApplicationController
     if @lesson.save
       deduct_lesson
 
-      if lesson_params[:email_receipt]
+      if lesson_params[:email_receipt] == true
           LessonMailer.lesson_email(@student, @lesson).deliver_now
       end
 
