@@ -30,7 +30,7 @@ class CreditsController < ApplicationController
         credit_account
 
         if credit_params[:email_receipt]
-          CreditMailer.credit_email(@user, @credit).deliver_now
+          CreditMailer.credit_email(@student, @credit).deliver_now
         end
 
         format.html { redirect_to [@student, @credit], notice: 'Credit was successfully created.' }
