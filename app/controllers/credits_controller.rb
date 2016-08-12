@@ -25,9 +25,9 @@ class CreditsController < ApplicationController
   def create
     @credit = @student.credits.new(credit_params)
 
-   # if credit_params[:email_receipt]
-    #  puts "I need to email parent!"
-    #end
+    if credit_params[:email_receipt]
+      CreditMailer.credit_email(@user, @credit).deliver_later
+    end
 
     respond_to do |format|
       if @credit.save
