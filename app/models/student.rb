@@ -2,6 +2,7 @@ class Student < ApplicationRecord
     belongs_to :user
     has_many :lessons, dependent: :destroy
     has_many :credits, dependent: :destroy
+    attr_accessor :parents_email
 
     def account_debit(cost)
         self.balance -= cost
