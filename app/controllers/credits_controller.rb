@@ -70,11 +70,11 @@ class CreditsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def credit_params
-      params.require(:credit).permit(:ammount, :date_time, :notes, :credit, :email_receipt)
+      params.require(:credit).permit(:amount, :date_time, :notes, :credit, :email_receipt)
     end
 
     def credit_account
-      num = @credit.ammount
+      num = @credit.amount
       @student.account_credit(num)
     end
 end

@@ -84,7 +84,7 @@
           <thead>
             <tr>
               <th>Date Time</th>
-              <th>Ammount</th>
+              <th>Amount</th>
               <th>Notes</th>
             </tr>
           </thead>
@@ -93,7 +93,7 @@
             <% @student.credits.recent.each do |credit| %>
               <tr>
                 <td><%= local_time credit.date_time %></td>
-                <td><%= number_to_currency credit.ammount %></td>
+                <td><%= number_to_currency credit.amount %></td>
                 <td><%= credit.notes %></td>
               </tr>
             <% end %>

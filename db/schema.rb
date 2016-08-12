@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810160106) do
+ActiveRecord::Schema.define(version: 20160812013441) do
 
   create_table "credits", force: :cascade do |t|
-    t.decimal  "ammount"
+    t.decimal  "amount"
     t.datetime "date_time"
     t.text     "notes"
     t.datetime "created_at", null: false
