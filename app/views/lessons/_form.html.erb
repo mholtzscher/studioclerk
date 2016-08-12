@@ -27,6 +27,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.check_box :email_receipt %>
+    <%= f.label :email_receipt, class: "control-label" %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit class: 'btn btn-default btn-success' %>
   </div>
 <% end %>

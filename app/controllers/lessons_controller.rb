@@ -27,6 +27,11 @@ class LessonsController < ApplicationController
 
     if @lesson.save
       deduct_lesson
+
+      if credit_params[:email_receipt]
+          LessonMailer.lesson_email(@student, @lesson).deliver_now
+      end
+
       redirect_to [@student, @lesson]
     else
       render action: "new"
@@ -63,7 +68,7 @@ class LessonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
-      params.require(:lesson).permit(:date_time, :duration, :notes)
+      params.require(:lesson).permit(:date_time, :duration, :notes, :email_receipt)
     end
 
     def deduct_lesson
