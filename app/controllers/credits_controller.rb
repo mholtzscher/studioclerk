@@ -29,7 +29,7 @@ class CreditsController < ApplicationController
       if @credit.save
         credit_account
 
-        if params[:credit][:email_receipt] == 1
+        if params[:credit][:email_receipt].to_i == 1
           CreditMailer.credit_email(@student, @credit).deliver_now
         end
 
