@@ -28,9 +28,9 @@ class CreditsController < ApplicationController
     respond_to do |format|
       if @credit.save
         credit_account
-        
+
         if credit_params[:email_receipt]
-          CreditMailer.credit_email(@user, @credit).deliver_later
+          CreditMailer.credit_email(@user, @credit).deliver_now
         end
 
         format.html { redirect_to [@student, @credit], notice: 'Credit was successfully created.' }
