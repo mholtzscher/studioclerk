@@ -29,7 +29,7 @@ class LessonsController < ApplicationController
       deduct_lesson
 
       if params[:lesson][:email_receipt].to_i == 1 && !@student.parents_email.empty?
-          LessonMailer.lesson_email(@student, @lesson).deliver_now
+          LessonMailer.lesson_email(@student, @lesson, current_user).deliver_now
       end
 
       redirect_to [@student, @lesson]

@@ -30,7 +30,7 @@ class CreditsController < ApplicationController
         credit_account
 
         if params[:credit][:email_receipt].to_i == 1 && !@student.parents_email.empty?
-          CreditMailer.credit_email(@student, @credit).deliver_now
+          CreditMailer.credit_email(@student, @credit, current_user).deliver_now
         end
 
         format.html { redirect_to [@student, @credit], notice: 'Credit was successfully created.' }
