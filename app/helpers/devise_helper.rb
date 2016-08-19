@@ -9,7 +9,7 @@ module DeviseHelper
 
     html = <<-HTML
     <div id="error_explanation">
-      <div class="alert alert-danger" role="alert"><strong>Error!</strong> #{message}</div>
+      <div class="alert alert-danger" role="alert"><strong>Error!</strong> #{messages}</div>
     </div>
     HTML
 
