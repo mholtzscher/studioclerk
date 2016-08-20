@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
 
   # GET /lessons
   def index
-    @lessons = @student.lessons
+    @lessons = @student.lessons.new_to_old
   end
 
   # GET /lessons/1
