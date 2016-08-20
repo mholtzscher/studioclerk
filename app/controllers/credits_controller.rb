@@ -3,7 +3,7 @@ class CreditsController < ApplicationController
 
   # GET /credits
   def index
-    @credits = @student.credits
+    @credits = @student.credits.new_to_old
   end
 
   # GET /credits/1
