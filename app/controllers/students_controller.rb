@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_user
+  before_action :check_authorization, only: [:show, :edit, :update, :destroy]
 
   # GET /students
   def index
@@ -66,6 +67,10 @@ class StudentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = current_user
+    end
+
+    def check_authorization
+      redirect_to students_url, alert: 'You do not have permission to view that student!' unless @user.students.exists?(params[:id]) 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
