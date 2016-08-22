@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
   before_action :set_student
+  before_action :check_authorization
 
   # GET /lessons
   def index
@@ -69,6 +70,11 @@ class LessonsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
       params.require(:lesson).permit(:date_time, :duration, :notes, :email_receipt)
+    end
+
+    def check_authorization
+      @user = current_user
+      redirect_to students_url, alert: 'You do not have permission to view that student!' unless @user.students.exists?(params[:student_id])
     end
 
     def deduct_lesson
