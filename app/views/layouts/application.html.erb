@@ -11,31 +11,45 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">StudioClerk</a>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">StudioClerk</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <% if user_signed_in? %>
+              <%= link_to current_user.email, edit_user_registration_path(current_user), class: "mdl-navigation__link" %>
+              <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: "mdl-navigation__link" %>
+            <% end %>
+          </nav>
         </div>
-
-        <% if user_signed_in? %>
-          <ul class="nav navbar-nav navbar-left">
-            <li><a href="/students" class="navbar-link">My Students</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to current_user.email, edit_user_registration_path(current_user) %>
-            <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
-          </ul>
-        <% end %>
-
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">StudioClerk</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="/students">My Students</a>
+          <% if user_signed_in? %>
+              <%= link_to current_user.email, edit_user_registration_path(current_user), class: "mdl-navigation__link" %>
+              <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: "mdl-navigation__link" %>
+            <% end %>
+        </nav>
       </div>
-    </nav>
-
-    <div class="alert alert-info" role="alert" style="<%= 'display: none;' unless notice%>"><%= notice %></div>
-    <div class="alert alert-danger" role="alert" style="<%= 'display: none;' unless alert%>"><%= alert %></div>
-    
-    <div class="container">
-      <%= yield %>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <div class="alert alert-info" role="alert" style="<%= 'display: none;' unless notice%>"><%= notice %></div>
+          <div class="alert alert-danger" role="alert" style="<%= 'display: none;' unless alert%>"><%= alert %></div>
+          
+          <div class="container">
+            <%= yield %>
+          </div>
+        </div>
+      </main>
     </div>
+
+    
     
   </body>
 </html>
