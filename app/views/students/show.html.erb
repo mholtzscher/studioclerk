@@ -59,7 +59,6 @@
             <tr>
               <th>Date Time</th>
               <th>Duration(minutes)</th>
-              <th>Notes</th>
             </tr>
           </thead>
 
@@ -68,7 +67,6 @@
               <tr>
                 <td><%= local_time lesson.date_time %></td>
                 <td><%= lesson.duration %></td>
-                <td><%= lesson.notes %></td>
               </tr>
             <% end %>
           </tbody>
@@ -88,7 +86,6 @@
             <tr>
               <th>Date Time</th>
               <th>Amount</th>
-              <th>Notes</th>
             </tr>
           </thead>
 
@@ -97,7 +94,6 @@
               <tr>
                 <td><%= local_time credit.date_time %></td>
                 <td><%= number_to_currency credit.amount %></td>
-                <td><%= credit.notes %></td>
               </tr>
             <% end %>
           </tbody>
