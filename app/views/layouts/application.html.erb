@@ -32,7 +32,7 @@
         <% if user_signed_in? %>
           <div class = "collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
-              <li><a href="/students" class="navbar-link <% if current_page?(students_path) active %>">My Students</a></li>
+              <li><a href="/students" class="navbar-link <% active if current_page?(students_path) %>">My Students</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><%= link_to current_user.email, edit_user_registration_path(current_user) %>
