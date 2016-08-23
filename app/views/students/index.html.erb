@@ -3,24 +3,24 @@
 <table class="table">
   <thead>
     <tr>
-      <th class="text">Name</th>
-      <th class="text">Phone</th>
-      <th class="numeric">Balance</th>
-      <th class="numeric">Rate(per hour)</th>
-      <th class="text">Email</th>
-      <th class="text"></th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Balance</th>
+      <th>Rate(per hour)</th>
+      <th>Email</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @students.each do |student| %>
       <tr class="<%= account_status(student) %>" data-link="<%= student_path(student) %>">
-        <td data-title="Name"><%= student.name %></td>
-        <td data-title="Phone Number"><%= number_to_phone student.phone %></td>
-        <td data-title="Balance"><%= number_to_currency student.balance %></td>
-        <td data-title="Rate"><%= number_to_currency student.rate %></td>
-        <td data-title="Email"><%= student.email %></td>
-        <td data-title="View"><%= link_to 'View', student, :class=>'btn btn-info btn-block' %></td>
+        <td><%= student.name %></td>
+        <td><%= number_to_phone student.phone %></td>
+        <td><%= number_to_currency student.balance %></td>
+        <td><%= number_to_currency student.rate %></td>
+        <td><%= student.email %></td>
+        <td><%= link_to 'View', student, :class=>'btn btn-info btn-block' %></td>
       </tr>
     <% end %>
   </tbody>
