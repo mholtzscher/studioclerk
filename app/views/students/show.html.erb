@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="card">
-      <div class="card-header card-primary"><%= @student.name %></div>
+      <div class="card-header <%= account_status(@student) %>"><%= @student.name %></div>
       <div class="card-block">
 
         <p>
@@ -53,7 +53,7 @@
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
-      <div class="card-header  card-warning">Recent Lessons</div>
+      <div class="card-header card-primary">Recent Lessons</div>
       <div class="card-block">
         <table class="table">
           <thead>
