@@ -9,4 +9,4 @@ Student.destroy_all
 Credit.destroy_all
 Lesson.destroy_all
 
-10.times { Fabricate(:student) }
+15.times { Fabricate(:student) }
