@@ -1,5 +1,4 @@
 <br><br>
-
 <div class="card-columns">
   <% @students.each do |student| %>
     <div class="card">
@@ -8,12 +7,13 @@
         <p class="card-text">Phone: <%= number_to_phone student.phone %></p>
         <p class="card-text">Balance: <%= number_to_currency student.balance %></p>
         <p class="card-text">Rate: <%= number_to_currency student.rate %></p>
-        <td><%= link_to 'View', student, :class=>'card-link' %></td>
+        <%= link_to 'View', student, :class=>'card-link' %>
       </div>
     </div>
   <% end %>
+  <div class="card">
+    <div class="card-block">
+      <%= link_to 'Add New Student!', new_student_path, :class=>'btn btn-success btn-lg btn-block' %>
+    </div>
+  </div>
 </div>
-
-<br>
-
-<%= link_to 'Add Student', new_student_path, :class=>'btn btn-success btn-lg' %>
