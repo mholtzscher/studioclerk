@@ -1,11 +1,11 @@
 module StudentsHelper
     def account_status(student)
         if student.balance > student.rate
-            "success"
+            "card-success"
         elsif student.balance >= 0
-            "warning"
+            "card-warning"
         else
-            "danger"
+            "card-danger"
         end
     end
 end

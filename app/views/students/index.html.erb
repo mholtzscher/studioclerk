@@ -1,31 +1,20 @@
-<h2>My Students</h2>
+<br><br>
 
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Balance</th>
-        <th>Rate(per hour)</th>
-        <th>Email</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @students.each do |student| %>
-        <tr class="<%= account_status(student) %>" data-link="<%= student_path(student) %>">
-          <td><%= student.name %></td>
-          <td><%= number_to_phone student.phone %></td>
-          <td><%= number_to_currency student.balance %></td>
-          <td><%= number_to_currency student.rate %></td>
-          <td><%= student.email %></td>
-          <td><%= link_to 'View', student, :class=>'btn btn-info btn-block' %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="row">
+  <% @students.each do |student| %>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header <%= account_status(student) %>"><%= student.name %></div>
+        <div class="card-block">
+          <p class="card-text"><%= number_to_phone student.phone %></p>
+          <p class="card-text"><%= number_to_currency student.balance %></p>
+          <p class="card-text"><%= number_to_currency student.rate %></p>
+          <p class="card-text"><%= student.email %></p>
+          <td><%= link_to 'View', student, :class=>'card-link' %></td>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <br>
