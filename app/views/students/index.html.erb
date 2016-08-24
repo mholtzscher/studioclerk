@@ -1,16 +1,14 @@
 <br><br>
 
-<div class="row">
+<div class="card-columns">
   <% @students.each do |student| %>
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-header <%= account_status(student) %>"><%= student.name %></div>
-        <div class="card-block">
-          <p class="card-text">Phone: <%= number_to_phone student.phone %></p>
-          <p class="card-text">Balance: <%= number_to_currency student.balance %></p>
-          <p class="card-text">Rate: <%= number_to_currency student.rate %></p>
-          <td><%= link_to 'View', student, :class=>'card-link' %></td>
-        </div>
+    <div class="card">
+      <div class="card-header <%= account_status(student) %>"><%= student.name %></div>
+      <div class="card-block">
+        <p class="card-text">Phone: <%= number_to_phone student.phone %></p>
+        <p class="card-text">Balance: <%= number_to_currency student.balance %></p>
+        <p class="card-text">Rate: <%= number_to_currency student.rate %></p>
+        <td><%= link_to 'View', student, :class=>'card-link' %></td>
       </div>
     </div>
   <% end %>
