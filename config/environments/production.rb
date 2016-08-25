@@ -68,7 +68,7 @@ Rails.application.configure do
 
   ActionMailer::Base.delivery_method = :smtp
 
-  config.action_mailer.default_url_options = { :host => 'studioclerk.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'studioclerkapp.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

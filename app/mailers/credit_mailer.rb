@@ -1,5 +1,5 @@
 class CreditMailer < ApplicationMailer
-  default from: 'admin@studioclerk.herokuapp.com'
+  default from: 'admin@studioclerkapp.com'
  
   def credit_email(student, credit, user)
     @student = student

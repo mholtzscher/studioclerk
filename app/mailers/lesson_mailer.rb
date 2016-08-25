@@ -1,5 +1,5 @@
 class LessonMailer < ApplicationMailer
-    default from: 'admin@studioclerk.herokuapp.com'
+    default from: 'admin@studioclerkapp.com'
  
     def lesson_email(student, lesson, user)
         @student = student
