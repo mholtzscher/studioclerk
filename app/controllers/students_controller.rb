@@ -63,11 +63,6 @@ class StudentsController < ApplicationController
     end
   end
 
-  def letsencrypt
-    # use your code here, not mine
-    render text: "PbwNUVKLi9tolLp82sxf52MwKcohjyKHybqS60L5pCc:"
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
