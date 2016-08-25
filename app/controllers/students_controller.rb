@@ -65,7 +65,7 @@ class StudentsController < ApplicationController
 
   def letsencrypt
     # use your code here, not mine
-    render text: "-KJT5cJSyA6jWHFVuSb_3fY4HfyNaBkVHdYlMX7vMqQ"
+    render text: "PbwNUVKLi9tolLp82sxf52MwKcohjyKHybqS60L5pCc:"
   end
 
   private
