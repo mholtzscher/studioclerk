@@ -54,7 +54,7 @@ class StudentsController < ApplicationController
 
   def letsencrypt
     # use your code here, not mine
-    render text: "_jIu0PcmnXxTkgdFBqK7iqUaSfvYcFoFETs6VwtrSF4.veD3HQ4Cc4mqve7g22bAieawAsTAiF5tbqzi98El778"
+    render text: "gkLaJTOGzbY7pKD82czIVwND6ME2WvxveaXj5-u0Jy4.veD3HQ4Cc4mqve7g22bAieawAsTAiF5tbqzi98El778"
   end
 
   # DELETE /students/1
