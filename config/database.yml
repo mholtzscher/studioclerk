@@ -14,5 +14,5 @@ production:
   pool: 5
   timeout: 5000
   host: localhost
-  user: root
+  username: root
   password: 'Bearcats#2016'
