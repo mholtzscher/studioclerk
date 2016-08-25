@@ -52,11 +52,6 @@ class StudentsController < ApplicationController
     end
   end
 
-  def letsencrypt
-    # use your code here, not mine
-    render text: "gkLaJTOGzbY7pKD82czIVwND6ME2WvxveaXj5-u0Jy4.veD3HQ4Cc4mqve7g22bAieawAsTAiF5tbqzi98El778"
-  end
-
   # DELETE /students/1
   def destroy
     @student = @user.students.find(params[:id])
