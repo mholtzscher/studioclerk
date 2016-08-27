@@ -35,6 +35,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'fabrication'
   gem 'faker'
+  gem 'sqlite3'
 end
 
 group :development do
