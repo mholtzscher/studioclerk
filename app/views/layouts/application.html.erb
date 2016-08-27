@@ -43,8 +43,18 @@
         </div>
       </nav>
 
-    <div class="alert alert-info" role="alert" style="<%= 'display: none;' unless notice%>"><%= notice %></div>
-    <div class="alert alert-danger" role="alert" style="<%= 'display: none;' unless alert%>"><%= alert %></div>
+    <div class="alert alert-info alert-dismissible fade in" role="alert" style="<%= 'display: none;' unless notice%>">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button> 
+      <%= notice %>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade in" role="alert" style="<%= 'display: none;' unless alert%>">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button> 
+      <%= alert %>
+    </div>
     
     <div class="container">
       <%= yield %>
