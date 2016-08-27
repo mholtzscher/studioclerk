@@ -60,15 +60,15 @@ Rails.application.configure do
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com',
+    :user_name      => Rails.application.secrets.sendgrid_username,
+    :password       => Rails.application.secrets.sendgrid_password,
+    :domain         => 'studioclerkapp.com',
     :enable_starttls_auto => true
   }
 
   ActionMailer::Base.delivery_method = :smtp
 
-  config.action_mailer.default_url_options = { :host => 'studioclerk.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'studioclerkapp.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
