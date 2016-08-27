@@ -18,5 +18,5 @@ production:
   pool: 5
   timeout: 5000
   host: localhost
-  username: root
-  password: 'Bearcats#2016'
+  username: <%= Rails.application.secrets[:database][:username] %>
+  password: <%= Rails.application.secrets[:database][:password] %>
