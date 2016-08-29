@@ -1,3 +1,4 @@
+# User model for handling accounts for the site
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
