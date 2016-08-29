@@ -1,3 +1,4 @@
+# Controller for handling anything Lesson related
 class LessonsController < ApplicationController
   before_action :set_student
   before_action :check_authorization
@@ -19,7 +20,7 @@ class LessonsController < ApplicationController
 
   # GET /lessons/1/edit
   def edit
-   @lesson = @student.lessons.find(params[:id])
+    @lesson = @student.lessons.find(params[:id])
   end
 
   # POST /lessons
@@ -28,14 +29,10 @@ class LessonsController < ApplicationController
 
     if @lesson.save
       deduct_lesson
-
-      if params[:lesson][:email_receipt].to_i == 1 && !@student.parents_email.empty?
-          LessonMailer.lesson_email(@student, @lesson, current_user).deliver_now
-      end
-
+      send_email_receipt
       redirect_to [@student, @lesson]
     else
-      render action: "new"
+      render action: 'new'
     end
   end
 
@@ -45,7 +42,8 @@ class LessonsController < ApplicationController
 
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to [@student, @lesson], notice: 'Lesson was successfully updated.' }
+        notice_text = 'Lesson was successfully updated.'
+        format.html { redirect_to [@student, @lesson], notice: notice_text }
       else
         format.html { render :edit }
       end
@@ -55,32 +53,41 @@ class LessonsController < ApplicationController
   # DELETE /lessons/1
   def destroy
     @lesson = @student.lessons.find(params[:id])
-    
     @lesson.destroy
     respond_to do |format|
-      format.html { redirect_to student_lessons_url, notice: 'Lesson was successfully destroyed.' }
+      notice_text = 'Lesson was successfully destroyed.'
+      format.html { redirect_to student_lessons_url, notice: notice_text }
     end
   end
 
   private
-    def set_student
-      @student = Student.find(params[:student_id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def lesson_params
-      params.require(:lesson).permit(:date_time, :duration, :notes, :email_receipt)
-    end
+  def set_student
+    @student = Student.find(params[:student_id])
+  end
 
-    def check_authorization
-      @user = current_user
-      redirect_to students_url, alert: 'You do not have permission to view that student!' unless @user.students.exists?(params[:student_id])
-    end
+  # white list params
+  def lesson_params
+    params.require(:lesson).permit(:date_time, :duration, :notes, :email_receipt)
+  end
 
-    def deduct_lesson
-      rate = @student.rate
-      cost = (@lesson.duration / 60.0) * rate
-      cost = cost.to_i
-      @student.account_debit(cost)
+  def check_authorization
+    @user = current_user
+    alert_text = 'You do not have permission to view that student!'
+    redirect_to students_url, alert: alert_text unless @user.students.exists?(params[:student_id])
+  end
+
+  def deduct_lesson
+    rate = @student.rate
+    cost = (@lesson.duration / 60.0) * rate
+    cost = cost.to_i
+    @student.account_debit(cost)
+  end
+
+  def send_email_receipt
+    receipt_requested = params[:lesson][:email_receipt].to_i
+    if receipt_requested == 1 && !@student.parents_email.empty?
+      LessonMailer.lesson_email(@student, @lesson, current_user).deliver_now
     end
+  end
 end
