@@ -40,13 +40,11 @@ class LessonsController < ApplicationController
   def update
     @lesson = @student.lessons.find(params[:id])
 
-    respond_to do |format|
-      if @lesson.update(lesson_params)
-        notice_text = 'Lesson was successfully updated.'
-        format.html { redirect_to [@student, @lesson], notice: notice_text }
-      else
-        format.html { render :edit }
-      end
+    if @lesson.update(lesson_params)
+      notice_text = 'Lesson was successfully updated.'
+      redirect_to [@student, @lesson], notice: notice_text
+    else
+      render :edit
     end
   end
 
@@ -54,10 +52,8 @@ class LessonsController < ApplicationController
   def destroy
     @lesson = @student.lessons.find(params[:id])
     @lesson.destroy
-    respond_to do |format|
-      notice_text = 'Lesson was successfully destroyed.'
-      format.html { redirect_to student_lessons_url, notice: notice_text }
-    end
+    notice_text = 'Lesson was successfully destroyed.'
+    redirect_to student_lessons_url, notice: notice_text
   end
 
   private
