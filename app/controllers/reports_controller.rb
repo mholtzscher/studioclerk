@@ -1,8 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_student
 
-  # GET /reports
-  # GET /reports.json
   def index
     # @reports = Report.all
   end
