@@ -1,3 +1,4 @@
+# Controller for handling all things related to Account Credits
 class CreditsController < ApplicationController
   before_action :set_student
   before_action :check_authorization
@@ -25,19 +26,13 @@ class CreditsController < ApplicationController
   # POST /credits
   def create
     @credit = @student.credits.new(credit_params)
-
-    respond_to do |format|
-      if @credit.save
-        credit_account
-
-        if params[:credit][:email_receipt].to_i == 1 && !@student.parents_email.empty?
-          CreditMailer.credit_email(@student, @credit, current_user).deliver_now
-        end
-
-        format.html { redirect_to [@student, @credit], notice: 'Credit was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @credit.save
+      credit_account
+      send_email_receipt
+      notice_text = 'Credit was successfully created.'
+      redirect_to [@student, @credit], notice: notice_text
+    else
+      render :new
     end
   end
 
@@ -47,9 +42,10 @@ class CreditsController < ApplicationController
 
     respond_to do |format|
       if @credit.update(credit_params)
-        format.html { redirect_to [@student, @credit], notice: 'Credit was successfully updated.' }
+        notice_text = 'Credit was successfully updated.'
+        redirect_to [@student, @credit], notice: notice_text
       else
-        format.html { render :edit }
+        render :edit
       end
     end
   end
@@ -58,28 +54,36 @@ class CreditsController < ApplicationController
   def destroy
     @credit = @student.credits.find(params[:id])
     @credit.destroy
-    respond_to do |format|
-      format.html { redirect_to student_credits_url, notice: 'Credit was successfully destroyed.' }
-    end
+    notice_text = 'Credit was successfully destroyed.'
+    redirect_to student_credits_url, notice: notice_text
   end
 
   private
-    def set_student
-      @student = Student.find(params[:student_id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def credit_params
-      params.require(:credit).permit(:amount, :date_time, :notes, :credit, :email_receipt)
-    end
+  def set_student
+    @student = Student.find(params[:student_id])
+  end
 
-    def check_authorization
-      @user = current_user
-      redirect_to students_url, alert: 'You do not have permission to view that student!' unless @user.students.exists?(params[:student_id])
-    end
+  # whitelist params
+  def credit_params
+    params.require(:credit).permit(:amount, :date_time, :notes, :credit, :email_receipt)
+  end
 
-    def credit_account
-      num = @credit.amount
-      @student.account_credit(num)
+  def check_authorization
+    @user = current_user
+    alert_text = 'You do not have permission to view that student!'
+    redirect_to students_url, alert: alert_text unless @user.students.exists?(params[:student_id])
+  end
+
+  def credit_account
+    num = @credit.amount
+    @student.account_credit(num)
+  end
+
+  def send_email_receipt
+    receipt_requested = params[:credit][:email_receipt].to_i == 1
+    if receipt_requested && !@student.parents_email.empty?
+      CreditMailer.credit_email(@student, @credit, current_user).deliver_now
     end
+  end
 end
