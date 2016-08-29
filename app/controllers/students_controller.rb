@@ -1,3 +1,4 @@
+# Controller for all things Student related
 class StudentsController < ApplicationController
   before_action :set_user
   before_action :check_authorization, only: [:show, :edit, :update, :destroy]
@@ -26,14 +27,10 @@ class StudentsController < ApplicationController
   def create
     @student = @user.students.new(student_params)
 
-    respond_to do |format|
-      if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
-        format.json { render :show, status: :created, location: @student }
-      else
-        format.html { render :new }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
+    if @student.save
+      redirect_to @student, notice: 'Student was successfully added.'
+    else
+      render :new
     end
   end
 
@@ -41,40 +38,33 @@ class StudentsController < ApplicationController
   def update
     @student = @user.students.find(params[:id])
 
-    respond_to do |format|
-      if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
-        format.json { render :show, status: :ok, location: @student }
-      else
-        format.html { render :edit }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
+    if @student.update(student_params)
+      redirect_to @student, notice: 'Student was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /students/1
   def destroy
     @student = @user.students.find(params[:id])
-    
     @student.destroy
-    respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to students_url, notice: 'Student was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = current_user
-    end
 
-    def check_authorization
-      redirect_to students_url, alert: 'You do not have permission to view that student!' unless @user.students.exists?(params[:id]) 
-    end
+  def set_user
+    @user = current_user
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def student_params
-      params.require(:student).permit(:name, :phone, :parent_phone, :notes, :balance, :rate, :email, :parents_email)
-    end
+  def check_authorization
+    alert_text = 'You do not have permission to view that student!'
+    redirect_to students_url, alert: alert_text unless @user.students.exists?(params[:id])
+  end
+
+  # whitelist parameters
+  def student_params
+    params.require(:student).permit(:name, :phone, :parent_phone, :notes, :balance, :rate, :email, :parents_email)
+  end
 end
