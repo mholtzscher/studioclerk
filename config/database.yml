@@ -1,17 +1,13 @@
 development:
-  adapter: mysql2
+  adapter: sqlite3
   pool: 5
   timeout: 5000
-  database: studio_dev
-  username: root
-  password: 'frogger88'
+  database: db/development.sqlite3
 test:
-  adapter: mysql2
+  adapter: sqlite3
   pool: 5
   timeout: 5000
-  database: studio_test
-  username: root
-  password: 'frogger88'
+  database: db/test.sqlite3
 production:
   adapter: mysql2
   database: studio_production

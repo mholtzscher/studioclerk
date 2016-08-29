@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :students do
     resources :credits
     resources :lessons  
+    resources :reports, only: [:index]
   end
   
   root to: 'students#index'
