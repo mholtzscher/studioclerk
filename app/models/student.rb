@@ -7,11 +7,11 @@ class Student < ApplicationRecord
 
   def account_debit(cost)
     self.balance -= cost
-    self.save
+    save
   end
 
   def account_credit(amount)
     self.balance += amount
-    self.save
+    save
   end
 end
