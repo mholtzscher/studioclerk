@@ -1,6 +1,7 @@
+# Miler for account credits to parents
 class CreditMailer < ApplicationMailer
   default from: 'admin@studioclerkapp.com'
- 
+
   def credit_email(student, credit, user)
     @student = student
     @credit = credit
