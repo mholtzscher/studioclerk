@@ -1,4 +1,4 @@
-#Mailer for lesson receipts to parents
+# Mailer for lesson receipts to parents
 class LessonMailer < ApplicationMailer
   default from: 'admin@studioclerkapp.com'
 
