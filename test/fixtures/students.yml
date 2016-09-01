@@ -1,21 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  phone: MyString
-  parent_phone: MyString
-  notes: MyText
-  balance: 9.99
-  rate: 9.99
-  email: MyString
-  parents_email: MyString
+good:
+  name: Michael
+  phone: 5556781234
+  parent_phone: 5556781235
+  notes: Great Student
+  balance: 100
+  rate: 36
+  email: test@demo.com
+  parents_email: parent@demo.com
 
-two:
-  name: MyString
-  phone: MyString
-  parent_phone: MyString
-  notes: MyText
-  balance: 9.99
-  rate: 9.99
-  email: MyString
-  parents_email: MyString
+warning:
+  name: Michael
+  phone: 5556781234
+  parent_phone: 5556781235
+  notes: Great Student
+  balance: 10
+  rate: 36
+  email: test@demo.com
+  parents_email: parent@demo.com
+
+bad:
+  name: Michael
+  phone: 5556781234
+  parent_phone: 5556781235
+  notes: Great Student
+  balance: -100
+  rate: 36
+  email: test@demo.com
+  parents_email: parent@demo.com
