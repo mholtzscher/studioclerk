@@ -52,6 +52,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :lesson_day, class: "form-control-label" %>
+    <%= f.select :lesson_day, Student.lesson_days.keys.to_a, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit class: 'btn btn-default btn-success' %>
   </div>
 <% end %>

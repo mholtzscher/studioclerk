@@ -30,6 +30,11 @@
           <%= number_to_currency @student.rate %>
         </p>
 
+         <p>
+          <strong>Lesson Day:</strong>
+          <%= @student.lesson_day.humanize %>
+        </p>
+
         <p>
           <strong>Email:</strong>
           <%= @student.email %>

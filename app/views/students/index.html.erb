@@ -7,6 +7,7 @@
         <p class="card-text">Phone: <%= number_to_phone student.phone %></p>
         <p class="card-text">Balance: <%= number_to_currency student.balance %></p>
         <p class="card-text">Rate: <%= number_to_currency student.rate %></p>
+        <p class="card-text">Lesson Day: <%= student.lesson_day.humanize %></p>
         <%= link_to 'View', student, :class=>'card-link' %>
       </div>
     </div>

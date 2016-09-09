@@ -65,6 +65,6 @@ class StudentsController < ApplicationController
 
   # whitelist parameters
   def student_params
-    params.require(:student).permit(:name, :phone, :parent_phone, :notes, :balance, :rate, :email, :parents_email)
+    params.require(:student).permit(:name, :phone, :parent_phone, :notes, :balance, :rate, :email, :parents_email, :lesson_day)
   end
 end
