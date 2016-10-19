@@ -6,7 +6,6 @@ class LessonMailer < ApplicationMailer
         @student = student
         @lesson = lesson
         @user = user
-        mail(to: @student.parents_email, subject: 'Private Lesson', from: @user.email)
-        content_type: "text/html"
+        mail(to: @student.parents_email, subject: 'Private Lesson', from: @user.email, content_type: "text/html")
     end
 end
