@@ -330,7 +330,7 @@
 												</tr>
 												<tr>
 													<td>
-														<%= local_time @lesson.date_time %><br>
+														<%= @lesson.date_time.localtime.to_formatted_s(:custom_long_ordinal) %><br>
 													</td>
 												</tr>
 												<tr>
