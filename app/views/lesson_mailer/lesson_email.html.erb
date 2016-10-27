@@ -339,7 +339,7 @@
 															<tr>
 																<td>Lesson(<%= @lesson.duration %> minutes)</td>
 																<td class="alignright">
-																	<%= number_to_currency (@student.rate * @lesson.duration) %>
+																	<%= number_to_currency (((@lesson.duration / 60.0) * rate).to_i) %>
 																</td>
 															</tr>
 															<tr class="total">
