@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909013541) do
+ActiveRecord::Schema.define(version: 20161103001902) do
 
   create_table "credits", force: :cascade do |t|
     t.decimal  "amount"
@@ -41,10 +41,11 @@ ActiveRecord::Schema.define(version: 20160909013541) do
     t.decimal  "rate"
     t.string   "email"
     t.string   "parents_email"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "user_id"
-    t.integer  "lesson_day",    default: 0, null: false
+    t.integer  "lesson_day",    default: 0,      null: false
+    t.string   "lesson_time",   default: "3:30"
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
