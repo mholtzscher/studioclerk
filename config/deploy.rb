@@ -1,6 +1,3 @@
-# Change these
-server '198.199.87.200', port: 22, roles: [:web, :app, :db], primary: true
-
 set :repo_url,        'git@github.com:mholtzscher/studioclerk.git'
 set :application,     'studioclerk'
 set :user,            'rails'
