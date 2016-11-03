@@ -4,52 +4,61 @@
     <div class="card">
       <div class="card-header <%= account_status(@student) %>"><%= @student.name %></div>
       <div class="card-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p>
+                <strong>Balance:</strong>
+                <%= number_to_currency @student.balance %>
+              </p>
 
-        <p>
-          <strong>Phone:</strong>
-          <%= number_to_phone @student.phone %>
-        </p>
+              <p>
+                <strong>Rate(per hour):</strong>
+                <%= number_to_currency @student.rate %>
+              </p>
 
-        <p>
-          <strong>Parent phone:</strong>
-          <%= number_to_phone @student.parent_phone %>
-        </p>
+              <p>
+                <strong>Lesson Day:</strong>
+                <%= @student.lesson_day.humanize %>
+              </p>
 
-        <p>
-          <strong>Notes:</strong>
-          <%= @student.notes %>
-        </p>
+              <p>
+                <strong>Lesson Time:</strong>
+                <%= @student.lesson_time %>
+              </p>
+            </div>
 
-        <p>
-          <strong>Balance:</strong>
-          <%= number_to_currency @student.balance %>
-        </p>
+            <div class="col-md-6">
+              <p>
+                <strong>Phone:</strong>
+                <%= number_to_phone @student.phone %>
+              </p>
 
-        <p>
-          <strong>Rate(per hour):</strong>
-          <%= number_to_currency @student.rate %>
-        </p>
+              <p>
+                <strong>Parent phone:</strong>
+                <%= number_to_phone @student.parent_phone %>
+              </p>
 
-         <p>
-          <strong>Lesson Day:</strong>
-          <%= @student.lesson_day.humanize %>
-        </p>
+              <p>
+                <strong>Email:</strong>
+                <%= @student.email %>
+              </p>
 
-        <p>
-          <strong>Lesson Time:</strong>
-          <%= @student.lesson_time %>
-        </p>
+              <p>
+                <strong>Parents email:</strong>
+                <%= @student.parents_email %>
+              </p>
+            </div>
 
-        <p>
-          <strong>Email:</strong>
-          <%= @student.email %>
-        </p>
-
-        <p>
-          <strong>Parents email:</strong>
-          <%= @student.parents_email %>
-        </p>
-
+            <div class="col-md-12">
+              <p>
+                <strong>Notes:</strong>
+                <%= @student.notes %>
+              </p>
+            </div>
+            
+          </div>
+        </div>
        
         <%= link_to 'Edit Student', edit_student_path(@student), :class=>'btn btn-primary' %>
       
