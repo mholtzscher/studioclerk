@@ -1,7 +1,7 @@
 <br><br>
 <div class="card-columns">
   <% @students.each do |student| %>
-    <a href="<%= student.base_uri %>">
+    <%= link_to student do %>
       <div class="card">
         <div class="card-header <%= account_status(student) %>"><%= student.name %></div>
         <div class="card-block">
@@ -12,7 +12,7 @@
           <%= link_to 'View', student, :class=>'card-link' %>
         </div>
       </div>
-    </a>
+    <% end %>
   <% end %>
   <div class="card">
     <div class="card-header card-primary">Get Started Here</div>
