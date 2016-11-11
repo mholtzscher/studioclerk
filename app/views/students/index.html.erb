@@ -2,7 +2,7 @@
 <div class="card-columns">
   <% @students.each do |student| %>
     <div class="card">
-      <div class="card-header card-<%= account_status(student) %>"><%= student.name %></div>
+      <div class="card-header text-white card-<%= account_status(student) %>"><%= student.name %></div>
       <div class="card-block">
         <p class="card-text">Phone: <%= number_to_phone student.phone %></p>
         <p class="card-text">Balance: <span class="tag tag-pill tag-<%= account_status(student)%>"><%= number_to_currency student.balance %></span></p>
