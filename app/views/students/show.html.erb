@@ -85,7 +85,7 @@
           <tbody>
             <% @student.lessons.recent.each do |lesson| %>
               <tr>
-                <td><%= local_time lesson.date_time %></td>
+                <td><%= local_time(lesson.date_time, '%B %e, %Y') %></td>
                 <td><%= lesson.duration %></td>
               </tr>
             <% end %>
@@ -112,7 +112,7 @@
           <tbody>
             <% @student.credits.recent.each do |credit| %>
               <tr>
-                <td><%= local_time credit.date_time %></td>
+                <td><%= local_time(credit.date_time, '%B %e, %Y') %></td>
                 <td><%= number_to_currency credit.amount %></td>
               </tr>
             <% end %>
