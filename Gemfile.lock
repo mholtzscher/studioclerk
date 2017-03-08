@@ -235,7 +235,8 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.0)
   sass-rails (~> 5.0)
-  shoulda
+  shoulda (~> 3.5)
+  shoulda-matchers (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
@@ -248,4 +249,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.1
+   1.14.6
