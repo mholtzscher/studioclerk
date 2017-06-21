@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'mysql2'
 
+gem "administrate"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development, :test do

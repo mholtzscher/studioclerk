@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   
+  namespace :admin do
+    resources :users
+    resources :credits
+    resources :lessons
+    resources :students
+
+    root to: "users#index"
+  end
+
   devise_for :users
   resources :students do
     resources :credits
